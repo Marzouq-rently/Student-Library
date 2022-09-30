@@ -53,12 +53,46 @@ class BooksController < ApplicationController
     def borrowed
       # byebug
       @a=params[:id]
-      @bo=Borrow.new
-      @bo.book_id=@a
-      @borrowed=Book.find(@a)
+      if Borrow.find_by(book_id:@a) == nil then 
+        @bo=Borrow.new
+        @bo.student_id=current_student.id
+        @bo.book_id=@a
+        @bo.save
+        @borrowed=Book.find(@a)
+      else
+        bid=Borrow.find_by(book_id:@a)
+        if bid.student_id==current_student.id then
+          render "borrowerror"
+          return
+        end
+        if Reservation.find_by(book_id:@a) == nil then
+          @res=Reservation.new
+          @res.student_id=current_student.id
+          @res.book_id=@a
+          @res.save
+          @borrowed=Book.find(@a)
+          render "reservation"
+          return
+        else
+          rid=Reservation.find_by(book_id:@a)
+          if rid.student_id==current_student.id then
+            render "reserverror1"
+            return
+          else
+           render "reserverror2"
+           return
+          end
+        end
+      end
     
     end
-  
+
+    def borrowhistory
+      @bohis=Borrow.all
+    end
+    def reservationhistory
+      @reshis=Reservation.all
+    end
     private
       def set_book
         @book = Book.find(params[:id])

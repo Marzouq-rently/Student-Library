@@ -5,4 +5,6 @@ class Student < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :borrows
   has_many :books, through: :borrows
+  has_many :reservations
+  has_many :books, through: :reservations
 end

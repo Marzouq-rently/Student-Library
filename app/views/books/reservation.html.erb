@@ -1,9 +1,11 @@
-<h1>Book borrowed</h1>
+<h2>The book is now "reserved" for you</h2>
+<h3>Seems like the book is borrowed by someone else.</h3>
+
 <table class="table">
 <thead>
     <tr>
     <th scope="col">Student mail</th>
-       <th scope="col">Borrowed id</th>
+       <th scope="col">Reserved id</th>
       <th scope="col">Book id</th>
       <th scope="col">Book </th>
       <th scope="col">Book name</th>
@@ -12,9 +14,9 @@
 </thead>
 <tbody>
 <tr>
-<% stud=Student.find(@bo.student_id)%>
+<% stud=Student.find(@res.student_id)%>
 <th scope="row"><%= stud.email %></th>
-<td><%= @bo.book_id %></td>
+<td><%= @res.book_id %></td>
 <td><%= @borrowed.id %></td>
 <td><%= @borrowed.bookid %></td>
 <td><%= @borrowed.bookname %></td>
