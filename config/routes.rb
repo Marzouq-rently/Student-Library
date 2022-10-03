@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :admins
-  devise_for :students
+  devise_for :students, controllers: {
+    sessions: 'students/sessions'
+  }
   resources :books do
     member do
       get :borrowed
@@ -21,11 +23,13 @@ Rails.application.routes.draw do
   get "/reservationhistory", to:"books#reservationhistory"
   get "books/borrowerror"
   get "books/reserverror"
-  get "pictures/addprofile"
-  get "pictures/show"
-  get "pictures/showstudent"
+  get "/addprofile", to:"pictures#addprofile"
+  get "/showstudent", to:"pictures#showstudent"
+  get "/studenthistory", to:"users#studenthistory"
+  # get "/pictures/showstudent"
   post '/photo', to:"pictures#photo"
   # get "pictures/addbookphoto"
+  get "pictures/show"
   post '/bookphoto', to:"pictures#bookphoto"
     # get "/borrowed/:id", to:"books#borrowed"
   # root "articles#index"

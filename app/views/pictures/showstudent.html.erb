@@ -4,5 +4,7 @@
   <% if admin_signed_in?%>
   <%= render "home/header1"%>
   <% end%>
-  <%= @simg.url%>
-<img src=@simg.url/>
+  <%= @simg.pictureable_type%>
+  <%# <%= @simg.url%> %>
+<%= image_tag @simg.url %>
+<%= link_to "Back", :back, class:"btn btn-primary"%>

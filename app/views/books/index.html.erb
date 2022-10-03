@@ -2,38 +2,47 @@
   <%= render "home/header" %>
     <p style="color: green"><%= notice %></p>
 <h1>Books</h1>
+
  <table class="table">
   <thead>
     <tr>
     <th scope="col">id</th>
     <th scope="col">Book-id</th>
       <th scope="col">Book Name</th>
+    <th scope="col">Description</th>
       <th scope="col">Author</th>
       <th scope="col">View book</th>
+       <th scope="col">Book image</th>
       <th scope="col">Borrow</th>
+       
     </tr>
     <div id="books">
   <% @book.each do |book| %>
     <%= render book %>
   <% end %>
 </div>
-
   </thead>
-  
   </table>
   <% end %>
+
   <% if admin_signed_in?%>
   <%= render "home/header1"%>
   <p style="color: green"><%= notice %></p>
 <h1>Books</h1>
+<%= link_to "New Book", new_book_path, class:"btn btn-success"%>
+  <%= link_to "Borrow history", borrowhistory_path, class:"btn btn-secondary"%>
+    <%= link_to "Reservation history", reservationhistory_path, class:"btn btn-secondary"%>
+
  <table class="table">
   <thead>
     <tr>
     <th scope="col">id</th>
     <th scope="col">Book-id</th>
       <th scope="col">Book Name</th>
+      <th scope="col">Description</th>
       <th scope="col">Author</th>
       <th scope="col">View book</th>
+      <th scope="col">Book image</th>
     </tr>
     <div id="books">
   <% @book.each do |book| %>
@@ -44,9 +53,6 @@
   </thead>
   
   </table>
-  <%= link_to "New Book", new_book_path, class:"btn btn-success"%>
-  <%= link_to "Borrow history", borrowhistory_path, class:"btn btn-secondary"%>
-    <%= link_to "Reservation history", reservationhistory_path, class:"btn btn-secondary"%>
-
+  
   <% end%>
         

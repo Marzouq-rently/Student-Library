@@ -1,9 +1,4 @@
-  <% if student_signed_in? %>
-  <%= render "home/header" %>
-  <% end %>
-  <% if admin_signed_in?%>
-  <%= render "home/header1"%>
-  <% end%>
+
 <%= form_with(model: book) do |form| %>
   <% if book.errors.any? %>
     <div style="color: red">
@@ -26,7 +21,11 @@
     <%= form.label :Book_name, style: "display: block" %>
     <%= form.text_field :bookname %>
   </div>
-
+<div>
+    <%= form.label :Description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+  <div>
   <div>
     <%= form.label :Author, style: "display: block" %>
     <%= form.text_field :author %>

@@ -5,8 +5,15 @@
       <th scope="row"><%= book.id%></th>
       <td><%= book.bookid%></td>
       <td><%= book.bookname%></td>
+       <td><%= book.description%></td>
       <td><%= book.author%></td>
       <td><%= link_to "Show", book %></td>
+      <% a=Picture.find_by(pictureable_type:"Book", pictureable_id:book.id)%>
+      <% if a!=nil %>
+      <td><%= image_tag a.url, style: 'height:15%;width:20%;'%></td>
+      <%else%>
+      <td></td>
+      <% end%>
       <%# <td><a href="/borrowed" >Borrow</a></td> %>
       <% if student_signed_in?%>
       <td><%= link_to "Borrow", borrowed_book_path(book)  %></td>

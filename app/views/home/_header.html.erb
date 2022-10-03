@@ -14,10 +14,14 @@
             <%= link_to "Sign Out", destroy_student_session_path, method: :delete, class:"nav-link" %>
         </li>
         <li class="nav-item">
-        <%= link_to "Add Profile photo", pictures_addprofile_path, class:"nav-link"%>
+        <%# <a  class="nav-link" href="/pictures/addprofile">Add Profile photo</a> %>
+        <%= link_to "Add Profile photo", addprofile_path, class:"nav-link" %>
         </li>
         <li class="nav-item">
         <%= link_to "Edit profile", edit_student_registration_path, class:"nav-link"%>
+        </li>
+        <li class="nav-item">
+        <%= link_to "Student History", studenthistory_path, class:"nav-link"%>
         </li>
         <% else %>
         <li class="nav-item">

@@ -1,7 +1,9 @@
   <% if student_signed_in? %>
   <%= render "home/header" %>
+<h2>Hello. Click home</h2>
   <% elsif admin_signed_in?%>
   <%= render "home/header1"%>
+  <h2>Hello. Click home</h2>
   <% else%>
 <%= link_to "Admin", new_admin_session_path, class:"btn btn-primary" %>
 <%= link_to "Student", new_student_session_path, class:"btn btn-primary"%>

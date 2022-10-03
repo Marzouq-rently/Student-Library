@@ -1,7 +1,7 @@
 class PicturesController < ApplicationController
     before_action :authenticate_student_or_admin!
+    
     def addprofile
-        render "addprofile"
     end
 
     def photo
