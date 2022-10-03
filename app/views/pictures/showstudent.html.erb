@@ -1,0 +1,8 @@
+<% if student_signed_in? %>
+  <%= render "home/header" %>
+  <% end %>
+  <% if admin_signed_in?%>
+  <%= render "home/header1"%>
+  <% end%>
+  <%= @simg.url%>
+<img src=@simg.url/>

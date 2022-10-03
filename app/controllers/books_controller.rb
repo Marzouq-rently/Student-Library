@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :authenticate_student_or_admin!
     before_action :set_book, only: %i[ show edit destroy update borrowed]
   
     def index

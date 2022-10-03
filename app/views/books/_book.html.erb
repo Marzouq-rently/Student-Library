@@ -1,3 +1,4 @@
+
   <tbody>
    <div id="<%= dom_id book %>">
     <tr>
@@ -7,7 +8,12 @@
       <td><%= book.author%></td>
       <td><%= link_to "Show", book %></td>
       <%# <td><a href="/borrowed" >Borrow</a></td> %>
+      <% if student_signed_in?%>
       <td><%= link_to "Borrow", borrowed_book_path(book)  %></td>
+      <% end %>
+      <% if admin_signed_in?%>
+      <td><%= link_to "Add book image", addbookphoto_picture_path(book) , class:"btn btn-secondary"%></td>
+<% end %>
     </tr>
       </div>
   </tbody>
