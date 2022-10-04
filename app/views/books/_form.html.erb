@@ -14,21 +14,21 @@
 
   <div>
     <%= form.label :BookId, style: "display: block" %>
-    <%= form.text_field :bookid %>
+    <%= form.text_field :bookid, autofocus: true, :required => 'required' %>
   </div>
 
   <div>
     <%= form.label :Book_name, style: "display: block" %>
-    <%= form.text_field :bookname %>
+    <%= form.text_field :bookname, autofocus: true, :required => 'required' %>
   </div>
 <div>
     <%= form.label :Description, style: "display: block" %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, autofocus: true, :required => 'required' %>
   </div>
   <div>
   <div>
     <%= form.label :Author, style: "display: block" %>
-    <%= form.text_field :author %>
+    <%= form.text_field :author, autofocus: true, :required => 'required' %>
   </div>
   <div>
     <%= form.submit %>

@@ -7,10 +7,10 @@
       <td><%= book.bookname%></td>
        <td><%= book.description%></td>
       <td><%= book.author%></td>
-      <td><%= link_to "Show", book %></td>
+      <td><%= link_to "Show", book ,class:"btn btn-primary"%></td>
       <% a=Picture.find_by(pictureable_type:"Book", pictureable_id:book.id)%>
       <% if a!=nil %>
-      <td><%= image_tag a.url, style: 'height:15%;width:20%;'%></td>
+      <td><%= image_tag a.url, style: 'height:20%;width:25%;'%></td>
       <%else%>
       <td></td>
       <% end%>
@@ -19,7 +19,9 @@
       <td><%= link_to "Borrow", borrowed_book_path(book)  %></td>
       <% end %>
       <% if admin_signed_in?%>
+         <% if a==nil%>
       <td><%= link_to "Add book image", addbookphoto_picture_path(book) , class:"btn btn-secondary"%></td>
+            <% end %>
 <% end %>
     </tr>
       </div>

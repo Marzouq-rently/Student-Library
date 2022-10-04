@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get "home/header"
   get "home/header1"
   get "home/homepage"
+  get "/homepage", to:"home#homepage"
   get "/borrowhistory", to:"books#borrowhistory"
   get "/books/reservation"
   get "/reservationhistory", to:"books#reservationhistory"

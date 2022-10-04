@@ -1,0 +1,39 @@
+  <% if student_signed_in? %>
+  <%= render "home/header" %>
+  <div class="card mb-3" style="max-width: 4000px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://media.istockphoto.com/photos/bookshelves-in-the-library-large-bookcase-with-lots-of-books-reading-picture-id1312155376?b=1&k=20&m=1312155376&s=170667a&w=0&h=foUyd5Gd8-GkQS4U3bfWNRx8kbTv3G5LEoCdImNIK54=" class="img-fluid rounded-start"  alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Welcome to Student Library</h5>
+        <p class="card-text">Borrow or reserve the books you want</p>
+         <%= link_to "View books", books_path, class:"btn btn-info"%>
+      </div>
+    </div>
+  </div>
+</div>
+  <% end %>
+  <% if admin_signed_in?%>
+  <%= render "home/header1"%>
+
+ <div class="card mb-3" style="max-width: 4000px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://media.istockphoto.com/photos/bookshelves-in-the-library-large-bookcase-with-lots-of-books-reading-picture-id1312155376?b=1&k=20&m=1312155376&s=170667a&w=0&h=foUyd5Gd8-GkQS4U3bfWNRx8kbTv3G5LEoCdImNIK54=" class="img-fluid rounded-start"  alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Welcome to Student Library</h5>
+        <p class="card-text">You are a admin.</p>
+         <%= link_to "View books", books_path, class:"btn btn-info"%>
+      </div>
+    </div>
+  </div>
+</div>
+  <% end%>
+
+
+
+

@@ -2,7 +2,6 @@
 <table class="table">
   <thead>
     <tr>
-     <th scope="col">id</th>
        <th scope="col">student_id</th>
        <th scope="col">student email</th>
     <th scope="col">bookid</th>
@@ -11,29 +10,46 @@
     <th scope="col">Status</th>
    
           </tr>
+         
     <div id="books">
     <% if @stbohis!=nil%>
-   <td> <%= @stbohis.id%></td>
-    <td><%= @stbohis.student_id%></td>
-    <% stud=Student.find(@stbohis.student_id)%>
+      <% @stbohis.each do |stbohis| %>
+   <tbody>
+      <% if stbohis.student_id==@sid%>
+    <tr>
+    <td><%= stbohis.student_id%></td>
+    <% stud=Student.find(stbohis.student_id)%>
 <th scope="row"><%= stud.email %></th>
-<td><%= @stbohis.book_id %></td>
-<% bok=Book.find(@stbohis.book_id)%>
+<td><%= stbohis.book_id %></td>
+<% bok=Book.find(stbohis.book_id)%>
 <td><%= bok.bookname %></td>
 <td><%= bok.author %></td>
 <td>Borrowed</td>
+</tr>
 <% end %>
+<% end %>
+</tbody>
+<% end %>
+
 <% if @strehis!=nil%>
-   <td> <%= @strehis.id%></td>
-    <td><%= @strehis.student_id%></td>
-    <% stud=Student.find(@strehis.student_id)%>
+ <% @strehis.each do |strehis| %>
+ <tbody>
+   <tr>
+   <% if strehis.student_id==@sid%>
+    <td><%= strehis.student_id%></td>
+    <% stud=Student.find(strehis.student_id)%>
 <th scope="row"><%= stud.email %></th>
-<td><%= @strehis.book_id %></td>
-<% bok=Book.find(@strehis.book_id)%>
+<td><%= strehis.book_id %></td>
+<% bok=Book.find(strehis.book_id)%>
 <td><%= bok.bookname %></td>
 <td><%= bok.author %></td>
 <td>Reserved</td>
+</tr>
+<%end%>
 <% end %>
+</tbody>
+<% end %>
+
 </div>
 
   </thead>
