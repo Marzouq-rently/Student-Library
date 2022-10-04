@@ -31,6 +31,11 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 
 gem 'byebug', '~> 11.1', '>= 11.1.3'
 
+gem 'activeadmin'
+
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
+gem 'sass-rails'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
