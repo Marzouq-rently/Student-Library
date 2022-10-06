@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-    before_action :authenticate_student_or_admin!
+    before_action :authenticate_student!
     
     def homepage
         render"/home/_homepage"

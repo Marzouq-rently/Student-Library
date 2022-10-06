@@ -1,8 +1,2 @@
-  <% if student_signed_in? %>
-  <%= render "home/header" %>
-  <% end %>
-  <% if admin_signed_in?%>
-  <%= render "home/header1"%>
-  <% end%>
 <h1>You have already borrowed this book</h1>
 <%= link_to "BACK", :back, class:"btn btn-secondary"%>

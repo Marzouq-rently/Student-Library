@@ -1,9 +1,4 @@
-  <% if student_signed_in? %>
-  <%= render "home/header" %>
-  <% end %>
-  <% if admin_signed_in?%>
-  <%= render "home/header1"%>
-  <% end%>
+
 <%= @img.pictureable_type%>
 <%# <%= @img.url%> %>
 <%= image_tag @img.url %>

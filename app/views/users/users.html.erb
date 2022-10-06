@@ -1,14 +1,10 @@
-  <div style="background-image: linear-gradient(to right bottom, #4c7fcb, #6987c8, #7e8fc4, #9098c1, #9fa2be);">
-  <% if student_signed_in? %>
+
+<% if student_signed_in?%>
 <%=render "home/homepage"%>
-  <% elsif admin_signed_in?%>
-<%=render "home/homepage"%>
-  <% else%>
-  <br><br>
-  <div class="container">
+<%else%>
+  <%= image_tag "https://img.freepik.com/premium-vector/online-registration-sign-up-login-account-smartphone-app-user-interface-with-secure-password-mobile-application-ui-web-banner-access-cartoon-people-vector-illustration_2175-1060.jpg?w=2000",style: 'width:50%;border-radius:8%', align:'right'%>
   <h2>Sign in with the respective user</h2>
 <%= link_to "Admin", new_admin_session_path, class:"btn btn-primary" %>
 <%= link_to "Student", new_student_session_path, class:"btn btn-primary"%>
-</div>
+
 <% end%>
-</div>

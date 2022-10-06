@@ -1,9 +1,3 @@
-  <% if student_signed_in? %>
-  <%= render "home/header" %>
-  <% end %>
-  <% if admin_signed_in?%>
-  <%= render "home/header1"%>
-  <% end%>
 <form method="POST" action='/photo'>
         <%= token_tag %>
         <div class="mb-3">

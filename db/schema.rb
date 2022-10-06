@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_04_121923) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_06_103749) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -46,6 +46,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_04_121923) do
     t.text "description"
   end
 
+  create_table "borrowbackends", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "book_id", null: false
+    t.integer "student_id", null: false
+    t.index ["book_id"], name: "index_borrowbackends_on_book_id"
+    t.index ["student_id"], name: "index_borrowbackends_on_student_id"
+  end
+
   create_table "borrows", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -62,6 +71,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_04_121923) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pictureable_type", "pictureable_id"], name: "index_pictures_on_pictureable"
+  end
+
+  create_table "reservationbackends", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "student_id", null: false
+    t.integer "book_id", null: false
+    t.index ["book_id"], name: "index_reservationbackends_on_book_id"
+    t.index ["student_id"], name: "index_reservationbackends_on_student_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -85,8 +103,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_04_121923) do
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "borrowbackends", "books"
+  add_foreign_key "borrowbackends", "students"
   add_foreign_key "borrows", "books"
   add_foreign_key "borrows", "students"
+  add_foreign_key "reservationbackends", "books"
+  add_foreign_key "reservationbackends", "students"
   add_foreign_key "reservations", "books"
   add_foreign_key "reservations", "students"
 end

@@ -24,20 +24,21 @@
          <li class="nav-item">
             <%= link_to "Sign Out", destroy_student_session_path, method: :delete, class:"nav-link active" %>
         </li>
+        <mdb-dropdown tag="li" class="nav-item avatar" anchorClass="p-0">
+        <mdb-dropdown-toggle tag="a" navLink color="stylish" slot="toggle" waves-fixed>
+          <% a=Picture.find_by(pictureable_type:"Student", pictureable_id:current_student.id)%>
+          <% if a!=nil%>
+          <%= image_tag a.url,class:"rounded-circle z-depth-0", style:'width:20%'%>
+        <%end%>
+        </mdb-dropdown-toggle>
+      </mdb-dropdown>
         <% else %>
         <li class="nav-item">
          <%= link_to "Sign in", new_student_session_path, class:"nav-link active"%>
         </li>
         <% end %>
       </ul>
-       <mdb-dropdown tag="li" class="nav-item avatar" anchorClass="p-0">
-        <mdb-dropdown-toggle tag="a" navLink color="stylish" slot="toggle" waves-fixed>
-          <% a=Picture.find_by(pictureable_type:"Student", pictureable_id:current_student.id)%>
-          <% if a!=nil%>
-          <%= image_tag a.url,class:"rounded-circle z-depth-0", style:'height:"20%";width:20%'%>
-        <%end%>
-        </mdb-dropdown-toggle>
-      </mdb-dropdown>
+       
       <%# <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>

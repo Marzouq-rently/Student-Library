@@ -55,10 +55,14 @@ class BooksController < ApplicationController
       # byebug
       @a=params[:id]
       if Borrow.find_by(book_id:@a) == nil then 
+        @bob=Borrowbackend.new
         @bo=Borrow.new
         @bo.student_id=current_student.id
         @bo.book_id=@a
         @bo.save
+        @bob.student_id=current_student.id
+        @bob.book_id=@a
+        @bob.save
         @borrowed=Book.find(@a)
       else
         bid=Borrow.find_by(book_id:@a)
@@ -71,6 +75,10 @@ class BooksController < ApplicationController
           @res.student_id=current_student.id
           @res.book_id=@a
           @res.save
+          @resb=Reservationbackend.new
+          @resb.student_id=current_student.id
+          @resb.book_id=@a
+          @resb.save
           @borrowed=Book.find(@a)
           render "reservation"
           return

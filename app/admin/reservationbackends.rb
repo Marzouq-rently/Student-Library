@@ -1,25 +1,16 @@
-ActiveAdmin.register Book do
+ActiveAdmin.register Reservationbackend do
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :bookname, :author, :bookid, :description
-  form do |f|
-    f.inputs do
-      f.input :bookname
-      f.input :author
-      f.input :bookid
-      f.input :description
-    end
-    f.actions
-  end
+  # permit_params :student_id, :book_id
   #
   # or
   #
   # permit_params do
-  #   permitted = [:bookname, :author, :bookid, :description]
+  #   permitted = [:student_id, :book_id]
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
