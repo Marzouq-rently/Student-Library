@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_06_103749) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_07_114155) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -42,7 +42,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_06_103749) do
     t.datetime "updated_at", null: false
     t.string "bookname"
     t.string "author"
-    t.string "bookid"
     t.text "description"
   end
 
@@ -60,6 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_06_103749) do
     t.datetime "updated_at", null: false
     t.integer "student_id", null: false
     t.integer "book_id", null: false
+    t.string "return"
     t.index ["book_id"], name: "index_borrows_on_book_id"
     t.index ["student_id"], name: "index_borrows_on_student_id"
   end
@@ -87,6 +87,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_06_103749) do
     t.datetime "updated_at", null: false
     t.integer "student_id", null: false
     t.integer "book_id", null: false
+    t.string "status"
     t.index ["book_id"], name: "index_reservations_on_book_id"
     t.index ["student_id"], name: "index_reservations_on_student_id"
   end

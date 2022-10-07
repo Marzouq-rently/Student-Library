@@ -14,5 +14,7 @@ ActiveAdmin.register Reservation do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+  action_item :"status", only: :show do
+    link_to "Status", return_path(reservation)
+  end
 end

@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-    validates_presence_of :bookname, :author, :bookid, :description
+    validates_presence_of :bookname, :author, :description
     has_many :borrows
     has_many :students, through: :borrows
     has_many :borrowbackends

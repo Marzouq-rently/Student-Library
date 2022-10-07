@@ -5,12 +5,11 @@ ActiveAdmin.register Book do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :bookname, :author, :bookid, :description
+  permit_params :bookname, :author, :description
   form do |f|
     f.inputs do
       f.input :bookname
       f.input :author
-      f.input :bookid
       f.input :description
     end
     f.actions

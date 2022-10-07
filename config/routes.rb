@@ -9,6 +9,11 @@ Rails.application.routes.draw do
       get :borrowed
     end
   end
+  resources :userss do
+    member do
+      get :return
+    end
+  end
   resources :pictures do
     member do
       get :addbookphoto
@@ -32,6 +37,7 @@ Rails.application.routes.draw do
   post '/photo', to:"pictures#photo"
   # get "pictures/addbookphoto"
   get "pictures/show"
+  get "/return", to:"users#return"
   post '/bookphoto', to:"pictures#bookphoto"
     # get "/borrowed/:id", to:"books#borrowed"
   # root "articles#index"

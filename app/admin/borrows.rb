@@ -14,5 +14,15 @@ ActiveAdmin.register Borrow do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+  # show do
+  #   attributes_table(*default_attribute_table_rows) do
+  #     row "Return Status" do
+  #       "-"
+  #     end
+  #   end
+  # end
+action_item :"return", only: :show do
+  link_to "Return", return_path(borrow)
+end
   
 end

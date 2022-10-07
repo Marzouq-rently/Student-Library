@@ -16,7 +16,8 @@ ActiveAdmin.register Picture do
   form do |f|
     f.inputs do
       f.input :url
-      f.input :pictureable_type
+      f.label :Picturable_type
+      f.select :pictureable_type, ['Book', 'Student']
       f.input :pictureable_id
     end
     f.actions

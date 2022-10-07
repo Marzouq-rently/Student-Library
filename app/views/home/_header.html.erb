@@ -12,7 +12,6 @@
         </li>
         <% if student_signed_in?%>
         <li class="nav-item">
-        <%# <a  class="nav-link" href="/pictures/addprofile">Add Profile photo</a> %>
         <%= link_to "Add Profile photo", addprofile_path, class:"nav-link active" %>
         </li>
         <li class="nav-item">
@@ -35,6 +34,9 @@
         <% else %>
         <li class="nav-item">
          <%= link_to "Sign in", new_student_session_path, class:"nav-link active"%>
+        </li>
+        <li class="nav-item">
+            <%= link_to "Sign Up", new_student_registration_path, class: "nav-link active"%>
         </li>
         <% end %>
       </ul>

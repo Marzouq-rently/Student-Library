@@ -54,44 +54,46 @@ class BooksController < ApplicationController
     def borrowed
       # byebug
       @a=params[:id]
-      if Borrow.find_by(book_id:@a) == nil then 
-        @bob=Borrowbackend.new
+      bid=Borrow.find_by(book_id:@a)
+      if bid == nil || bid.return=="Returned" then 
         @bo=Borrow.new
         @bo.student_id=current_student.id
         @bo.book_id=@a
+        @bo.return="-"
         @bo.save
-        @bob.student_id=current_student.id
-        @bob.book_id=@a
-        @bob.save
+        # @bob=Borrowbackend.new
+        # @bob.student_id=current_student.id
+        # @bob.book_id=@a
+        # @bob.save
         @borrowed=Book.find(@a)
       else
-        bid=Borrow.find_by(book_id:@a)
-        if bid.student_id==current_student.id then
+
+        if bid.student_id==current_student.id && bid.return=="-"then
           render "borrowerror"
           return
         end
-        if Reservation.find_by(book_id:@a) == nil then
-          @res=Reservation.new
-          @res.student_id=current_student.id
-          @res.book_id=@a
-          @res.save
-          @resb=Reservationbackend.new
-          @resb.student_id=current_student.id
-          @resb.book_id=@a
-          @resb.save
-          @borrowed=Book.find(@a)
-          render "reservation"
-          return
-        else
-          rid=Reservation.find_by(book_id:@a)
-          if rid.student_id==current_student.id then
-            render "reserverror1"
-            return
-          else
-           render "reserverror2"
-           return
-          end
-        end
+        # if Reservation.find_by(book_id:@a) == nil then
+        #   @res=Reservation.new
+        #   @res.student_id=current_student.id
+        #   @res.book_id=@a
+        #   @res.save
+        #   # @resb=Reservationbackend.new
+        #   # @resb.student_id=current_student.id
+        #   # @resb.book_id=@a
+        #   # @resb.save
+        #   @borrowed=Book.find(@a)
+        #   render "reservation"
+        #   return
+        # else
+        #   rid=Reservation.find_by(book_id:@a)
+        #   if rid.student_id==current_student.id then
+        #     render "reserverror1"
+        #     return
+        #   else
+        #    render "reserverror2"
+        #    return
+        #   end
+        # end
       end
     
     end
@@ -108,7 +110,7 @@ class BooksController < ApplicationController
       end
   
       def book_params
-        params.require(:book).permit(:bookid, :bookname, :description, :author)
+        params.require(:book).permit( :bookname, :description, :author)
       end
 
 end
