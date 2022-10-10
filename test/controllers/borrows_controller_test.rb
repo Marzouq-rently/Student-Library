@@ -1,6 +1,6 @@
 require "test_helper"
 
-class BorrowbackendTest < ActiveSupport::TestCase
+class BorrowsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_07_114155) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_10_042746) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -43,6 +43,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_114155) do
     t.string "bookname"
     t.string "author"
     t.text "description"
+    t.integer "copy"
+    t.integer "availablecopy"
   end
 
   create_table "borrowbackends", force: :cascade do |t|

@@ -13,6 +13,7 @@
       <%else%>
       <td></td>
       <% end%>
+     <td><%= book.availablecopy %></td>
       <%# <td><a href="/borrowed" >Borrow</a></td> %>
       <% if student_signed_in?%>
       <td><%= link_to "Borrow", borrowed_book_path(book)  %></td>

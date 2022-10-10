@@ -5,13 +5,19 @@ Rails.application.routes.draw do
     sessions: 'students/sessions'
   }
   resources :books do
-    member do
-      get :borrowed
-    end
+      member do
+        get :borrowed
+      end
   end
   resources :userss do
     member do
       get :return
+      get :status
+    end
+  end
+  resources :borrows do
+    member do
+      get :create
     end
   end
   resources :pictures do
@@ -38,6 +44,7 @@ Rails.application.routes.draw do
   # get "pictures/addbookphoto"
   get "pictures/show"
   get "/return", to:"users#return"
+  get "/status", to:"users#status"
   post '/bookphoto', to:"pictures#bookphoto"
     # get "/borrowed/:id", to:"books#borrowed"
   # root "articles#index"

@@ -15,6 +15,6 @@ ActiveAdmin.register Reservation do
   #   permitted
   # end
   action_item :"status", only: :show do
-    link_to "Status", return_path(reservation)
+    link_to "Status", status_path(reservation)
   end
 end

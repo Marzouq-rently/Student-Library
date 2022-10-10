@@ -49,14 +49,20 @@
  <tbody>
    <tr>
    <% if strehis.student_id==@sid%>
-    <td><%= strehis.student_id%></td>
-    <% stud=Student.find(strehis.student_id)%>
-<th scope="row"><%= stud.email %></th>
-<td><%= strehis.book_id %></td>
-<% bok=Book.find(strehis.book_id)%>
-<td><%= bok.bookname %></td>
-<td><%= bok.author %></td>
-<td>Reserved</td>
+      <% if strehis.status=="Reserved"%>
+          <td><%= strehis.student_id%></td>
+          <% stud=Student.find(strehis.student_id)%>
+          <th scope="row"><%= stud.email %></th>
+          <td><%= strehis.book_id %></td>
+          <% bok=Book.find(strehis.book_id)%>
+          <td><%= bok.bookname %></td>
+          <td><%= bok.author %></td>
+          <td>-</td>
+          <td>-</td>
+          <td>Reserved</td>
+      <%else%>
+    <tr></tr>
+<%end%>
 </tr>
 <%end%>
 <% end %>
