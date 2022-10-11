@@ -11,13 +11,14 @@ Rails.application.routes.draw do
   end
   resources :userss do
     member do
-      get :return
+      # get :return
       get :status
     end
   end
   resources :borrows do
     member do
       get :create
+      get :return
     end
   end
   resources :pictures do
@@ -43,7 +44,7 @@ Rails.application.routes.draw do
   post '/photo', to:"pictures#photo"
   # get "pictures/addbookphoto"
   get "pictures/show"
-  get "/return", to:"users#return"
+  get "/borrows/:id", to:"borrows#return"
   get "/status", to:"users#status"
   post '/bookphoto', to:"pictures#bookphoto"
     # get "/borrowed/:id", to:"books#borrowed"

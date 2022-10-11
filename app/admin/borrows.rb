@@ -22,7 +22,7 @@ ActiveAdmin.register Borrow do
   #   end
   # end
 action_item :"return", only: :show do
-  link_to "Return", return_path(borrow)
+  link_to "Return", return_borrow_path(borrow)
 end
   
 end

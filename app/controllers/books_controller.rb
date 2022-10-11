@@ -51,41 +51,40 @@ class BooksController < ApplicationController
       end
     end
 
-    def borrowed
-      # byebug
-      @a=params[:id]
-      bok=Book.find(@a)
-      @s=current_student.id
-      @x=bok.availablecopy
-      bid=Borrow.find_by(book_id:@a)
-      if @x>0
-        if Borrow.where(book_id:@a,student_id:@s,return:"-").present?
-          flash.alert="You have borrowed"
-          render "borrowerror"
-          return
-        else
-          @bo=Borrow.new
-          @bo.student_id=current_student.id
-          @bo.book_id=@a
-          @bo.return="-"
-          @borrowed=Book.find(@a)
-          x=@borrowed.availablecopy
-          x=x-1
-          @borrowed.update({:availablecopy=>x})
-          @bo.save
-          return
-        end
-      else
-          bid=Borrow.where(book_id:@a,student_id:current_student.id,return:"-")
-          if bid.present?
-            render "borrowerror"
-            return
-          else
-            reservation(@a)
-          end
-      end
+    # def borrowed
+    #   @a=params[:id]
+    #   bok=Book.find(@a)
+    #   @s=current_student.id
+    #   @x=bok.availablecopy
+    #   bid=Borrow.find_by(book_id:@a)
+    #   if @x>0
+    #     if Borrow.where(book_id:@a,student_id:@s,return:"-").present?
+    #       flash.alert="You have borrowed"
+    #       render "borrowerror"
+    #       return
+    #     else
+    #       @bo=Borrow.new
+    #       @bo.student_id=current_student.id
+    #       @bo.book_id=@a
+    #       @bo.return="-"
+    #       @borrowed=Book.find(@a)
+    #       x=@borrowed.availablecopy
+    #       x=x-1
+    #       @borrowed.update({:availablecopy=>x})
+    #       @bo.save
+    #       return
+    #     end
+    #   else
+    #       bid=Borrow.where(book_id:@a,student_id:current_student.id,return:"-")
+    #       if bid.present?
+    #         render "borrowerror"
+    #         return
+    #       else
+    #         reservation(@a)
+    #       end
+    #   end
 
-      #   elsif bid.student_id==current_student.id && bid.return=="-"then
+    #   elsif bid.student_id==current_student.id && bid.return=="-"then
       #       render "borrowerror"
       #       return
       #   else
@@ -110,37 +109,37 @@ class BooksController < ApplicationController
       #     reservation(@a)
       #   end
       # end
-    end
+    #end
 
-    def reservation(a)
-      rid=Reservation.find_by(book_id:a)
-      if rid == nil  then
-        @res=Reservation.new
-        @res.student_id=current_student.id
-        @res.book_id=a
-        @res.status="Reserved"
-        @res.save
-        @borrowed=Book.find(a)
-        render "reservation"
-        return
-      else
-        rid=Reservation.where(book_id:a,student_id:@s,status:"Reserved")
-        if rid.present? then
-          render "reserverror1"
-          return
-        else
-          @res=Reservation.new
-          @res.student_id=current_student.id
-          @res.book_id=a
-          @res.status="Reserved"
-          @res.save
-          @borrowed=Book.find(a)
-          render "reservation" 
-        #  render "reserverror2"
-         return
-        end
-      end
-    end
+    # def reservation(a)
+    #   rid=Reservation.find_by(book_id:a)
+    #   if rid == nil  then
+    #     @res=Reservation.new
+    #     @res.student_id=current_student.id
+    #     @res.book_id=a
+    #     @res.status="Reserved"
+    #     @res.save
+    #     @borrowed=Book.find(a)
+    #     render "reservation"
+    #     return
+    #   else
+    #     rid=Reservation.where(book_id:a,student_id:@s,status:"Reserved")
+    #     if rid.present? then
+    #       render "reserverror1"
+    #       return
+    #     else
+    #       @res=Reservation.new
+    #       @res.student_id=current_student.id
+    #       @res.book_id=a
+    #       @res.status="Reserved"
+    #       @res.save
+    #       @borrowed=Book.find(a)
+    #       render "reservation" 
+    #     #  render "reserverror2"
+    #      return
+    #     end
+    #   end
+    # end
     def borrowhistory
       @bohis=Borrow.all
     end

@@ -6,20 +6,20 @@ class UsersController < ApplicationController
         @stbohis=Borrow.all
         @strehis=Reservation.all
     end
-    def return 
-        @pa=params[:format].to_i
-        @boret=Borrow.find(@pa)
-        if @boret.return=="-" then
-            @boret.update({:return=>"Returned"})
-            @boret.save
+    # def return 
+    #     @pa=params[:format].to_i
+    #     @boret=Borrow.find(@pa)
+    #     if @boret.return=="-" then
+    #         @boret.update({:return=>"Returned"})
+    #         @boret.save
             
-            k=@boret.book_id
-            @chanbok=Book.find(k)
-            y=@chanbok.availablecopy
-            y=y+1
-            @chanbok.update({:availablecopy=>y})
-        end
-    end
+    #         k=@boret.book_id
+    #         @chanbok=Book.find(k)
+    #         y=@chanbok.availablecopy
+    #         y=y+1
+    #         @chanbok.update({:availablecopy=>y})
+    #     end
+    # end
     def status
         @rpa=params[:format].to_i
         @reav=Reservation.find(@rpa)
