@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   devise_for :students, controllers: {
     sessions: 'students/sessions'
   }
+  namespace :api do
+    resources :borrows
+  end
   resources :books do
       member do
         get :borrowed

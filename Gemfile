@@ -36,7 +36,9 @@ gem 'activeadmin'
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 gem 'sass-rails'
 
+gem 'excon'
 
+gem 'doorkeeper'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -50,7 +52,7 @@ gem 'sass-rails'
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
+gem "bootsnap" #require: false
 
 # Use Sass to process CSS
 # gem "sassc-rails"
