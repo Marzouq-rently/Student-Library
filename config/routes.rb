@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
+  use_doorkeeper do
+    skip_controllers :authorizations, :applications, :authorized_applications
+  end
   devise_for :admins, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :students, controllers: {
     sessions: 'students/sessions'
   }
   namespace :api do
+    resources :admins, only: %i[create]
     resources :borrows
+    resources :books
   end
   resources :books do
       member do

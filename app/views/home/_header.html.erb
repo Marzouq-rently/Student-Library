@@ -23,14 +23,16 @@
          <li class="nav-item">
             <%= link_to "Sign Out", destroy_student_session_path, method: :delete, class:"nav-link active" %>
         </li>
+        <li>
         <mdb-dropdown tag="li" class="nav-item avatar" anchorClass="p-0">
         <mdb-dropdown-toggle tag="a" navLink color="stylish" slot="toggle" waves-fixed>
           <% a=Picture.find_by(pictureable_type:"Student", pictureable_id:current_student.id)%>
           <% if a!=nil%>
-          <%= image_tag a.url,class:"rounded-circle z-depth-0", style:'width:20%'%>
+          <%= image_tag a.url,class:"rounded-circle z-depth-0", style:'width:5%'%>
         <%end%>
         </mdb-dropdown-toggle>
       </mdb-dropdown>
+      </li>
         <% else %>
         <li class="nav-item">
          <%= link_to "Sign in", new_student_session_path, class:"nav-link active"%>
