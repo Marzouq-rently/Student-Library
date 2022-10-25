@@ -1,0 +1,15 @@
+current directory: /home/rently/Personal/Ruby on Rails projects/libraryfromscratch/scratch/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.13.0/ext/bootsnap
+/home/rently/.rbenv/versions/3.0.0/bin/ruby -I /home/rently/.rbenv/versions/3.0.0/lib/ruby/3.0.0 -r ./siteconf20221025-71870-e947so.rb extconf.rb
+creating Makefile
+
+current directory: /home/rently/Personal/Ruby on Rails projects/libraryfromscratch/scratch/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.13.0/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /home/rently/Personal/Ruby on Rails projects/libraryfromscratch/scratch/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.13.0/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.so
+
+current directory: /home/rently/Personal/Ruby on Rails projects/libraryfromscratch/scratch/vendor/bundle/ruby/3.0.0/gems/bootsnap-1.13.0/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20221025-71870-z8qw5o/bootsnap

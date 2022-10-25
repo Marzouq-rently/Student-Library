@@ -29,7 +29,7 @@ gem "jbuilder"
 
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
-gem 'byebug', '~> 11.1', '>= 11.1.3'
+# gem 'byebug', '~> 11.1', '>= 11.1.3'
 
 gem 'activeadmin'
 
@@ -63,6 +63,12 @@ gem "bootsnap" #require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'byebug', platform: :mri
+  gem 'rspec-rails', '~> 3.5'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -78,7 +84,7 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
+  # gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
 end
