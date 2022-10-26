@@ -44,7 +44,7 @@ RSpec.describe Student, :type => :model do
 #     @student.updated_at= nil
 #     expect(@student).to_not be_valid
 #   end
-it { should have_many(:books).through(:borrows) }
+it { should have_many(:books)}
 it { should have_many(:borrows) }
 it { should have_many(:books).through(:reservations) }
 it { should have_many(:reservations) }
