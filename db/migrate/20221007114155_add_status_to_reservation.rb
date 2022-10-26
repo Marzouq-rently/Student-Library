@@ -1,5 +1,5 @@
 class AddStatusToReservation < ActiveRecord::Migration[7.0]
   def change
-    add_column :reservations, :status, :string
+    add_column :reservations, :status, :text
   end
 end
