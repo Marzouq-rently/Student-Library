@@ -7,7 +7,6 @@ class Admin < ApplicationRecord
   
   # the authenticate method from devise documentation
   def self.authenticate(email, password)
-    byebug
     admin = Admin.find_for_authentication(email: email)
     admin&.valid_password?(password) ? admin : nil
   end

@@ -1,13 +1,13 @@
-FactoryGirl.define do
+FactoryBot.define do
     factory :book do
-      bookname "book name"
-      author "author name"
-      description "book description"
-      availablecopy 4
-      copy 4
-      created_at "23-2-2022"
-      updated_at "23-2-2022"
-      id 3
+      bookname {"book name"}
+      author {"author name"}
+      description {"book description"}
+      availablecopy {4}
+      copy {4}
+      created_at {"23-2-2022"}
+      updated_at {"23-2-2022"}
+      id {3}
 
     end
     # factory :book2, class:"Book"  do

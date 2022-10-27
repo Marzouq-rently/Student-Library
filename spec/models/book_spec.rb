@@ -1,7 +1,7 @@
 require 'rails_helper'
 RSpec.describe Book, :type => :model do
     before do
-        @book=FactoryGirl.create(:book)
+        @book=FactoryBot.create(:book)
     end
     describe "creation" do
         it "can be created if valid" do
@@ -41,14 +41,6 @@ RSpec.describe Book, :type => :model do
   end
   it "is not valid without a availablecopy"  do
     @book.availablecopy= nil
-    expect(@book).to_not be_valid
-  end
-  it "is not valid without a created_at" do
-    @book.created_at= nil
-    expect(@book).to_not be_valid
-  end
-  it "is not valid without a updated_at" do
-    @book.updated_at= nil
     expect(@book).to_not be_valid
   end
 it { should have_many(:borrows) }

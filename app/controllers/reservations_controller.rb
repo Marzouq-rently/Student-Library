@@ -5,11 +5,11 @@ class ReservationsController < ApplicationController
         check=Book.find(@reav.book_id)
         if check.availablecopy >0 then
             @reav.update({:status=>"Borrowed"})
-            @bo=Borrow.new
-            @bo.student_id=@reav.student_id
-            @bo.book_id=@reav.book_id
-            @bo.return="-"
-            @bo.save   
+            # @bo=Borrow.new
+            # @bo.student_id=@reav.student_id
+            # @bo.book_id=@reav.book_id
+            # @bo.return="-"
+            # @bo.save   
             redirect_to "/admin/reservations"
             flash.notice="The book is officially borrowed" 
         else

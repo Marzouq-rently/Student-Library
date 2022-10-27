@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :admins, only: %i[create]
     resources :borrows
     resources :books
+    resources :users
   end
   resources :books do
       member do

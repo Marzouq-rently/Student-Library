@@ -2,17 +2,17 @@ require 'rails_helper'
 
 RSpec.describe Borrow, :type => :model do
     # let (:book) {FactoryGirl.create(:book)}
-    borrow=FactoryGirl.build(:borrow)
+    borrow=FactoryBot.build(:borrow)
     it "is not valid when no bookid" do
         #@borrow.book_id = nil
-        borrow=FactoryGirl.build(:borrow, book_id: nil) 
+        borrow=FactoryBot.build(:borrow, book_id: nil) 
         # expect(borrow.valid?).to_be false
         expect(borrow).to_not be_valid()
     end
     # let (:student) {FactoryGirl.create(:student)}
     it "is not valid when no studentid" do
         #@borrow.student_id= nil
-        borrow=FactoryGirl.build(:borrow, student_id: nil)
+        borrow=FactoryBot.build(:borrow, student_id: nil)
         expect(borrow).to_not be_valid()
     end
 

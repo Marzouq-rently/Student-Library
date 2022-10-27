@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe BorrowsController, type: :controller do
-    # subject{
-    #     create(:borrow)
-    # }
+    subject{
+        create(:student)
+    }
     context "if student is authenticated then" do
-        it "render index page" do
-            sign_in create(:student)
+        it "create borrow" do
+            sign_in :subject
             borrow=create(:borrow)
             expect(get: '/borrows').to route_to(controller: 'borrows', action: 'index')
         end

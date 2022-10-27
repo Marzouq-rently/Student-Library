@@ -1,7 +1,7 @@
 require 'rails_helper'
 RSpec.describe Student, :type => :model do
     before do
-        @student=FactoryGirl.create(:student)
+        @student=FactoryBot.create(:student)
     end
     describe "creation" do
         it "can be created if valid" do
