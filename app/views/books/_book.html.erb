@@ -7,7 +7,7 @@
        <td><%= book.description%></td>
       <td><%= book.author%></td>
       <td><%= link_to "Show", book ,class:"btn btn-primary"%></td>
-      <% a=Picture.find_by(pictureable_type:"Book", pictureable_id:book.id)%>
+      <% a=Picture.find_by( pictureable_id:book.id)%>
       <% if a!=nil %>
       <td><%= image_tag a.url, style: 'width:30%;'%></td>
       <%else%>

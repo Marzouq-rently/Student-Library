@@ -4,8 +4,8 @@ class Api::UsersController < Api::ApplicationController
     #     render json: @bos, status: 200
     # end
     def show
-        @studentbohis=Borrow.where(student_id:params[:id])
-        @studentreshis=Reservation.where(student_id:params[:id])
+        @studentbohis=Borrow.eager_load(:books, :students).where(student_id:params[:id])
+        @studentreshis=Reservation.eager_load(:books, :students)where(student_id:params[:id])
         @history=@studentbohis+@studentreshis
         # respond_to do |format|
         #     format.html

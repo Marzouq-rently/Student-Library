@@ -7,7 +7,7 @@ class Borrow < ApplicationRecord
     validate:borrow_return, on: :update
     
     def borrow_create
-        if create_check(self.book_id,self.student_id,self.return)==true then
+        if create_check(self.book_id,self.student_id,self.returned)==true then
             self.errors.add :base, ("Already borrowed")
         else
             #debugger
@@ -25,7 +25,7 @@ class Borrow < ApplicationRecord
     end
     
     def borrow_return
-        if self.changes== {"return"=>["-","Returned"]} then
+        if self.changes== {"returned"=>["-","Returned"]} then
             k=self.book_id
             @chanbok=Book.find(k)
             y=@chanbok.availablecopy
@@ -37,7 +37,7 @@ class Borrow < ApplicationRecord
     end
 
     def create_check(x,y,z)
-        b=Borrow.where(book_id:x,student_id:y,return:z)
+        b=Borrow.where(book_id:x,student_id:y,returned:z)
         b.present?
     end
 end

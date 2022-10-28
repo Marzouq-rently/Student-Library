@@ -15,7 +15,7 @@ class BorrowsController < ApplicationController
             @bo=Borrow.new
             @bo.student_id=current_student.id
             @bo.book_id=@a
-            @bo.return="-"
+            @bo.returned="-"
             @borrowed=Book.find(@a)
             @bo.save
             redirect_to "/books"
@@ -62,7 +62,7 @@ class BorrowsController < ApplicationController
     def update
       @pa=params[:id]
       @boret=Borrow.find(@pa)
-      @boret.update({:return=>"Returned"})
+      @boret.update({:returned=>"Returned"})
     end
 
 end

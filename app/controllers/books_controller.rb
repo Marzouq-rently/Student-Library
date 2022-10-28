@@ -3,7 +3,7 @@ class BooksController < ApplicationController
     before_action :set_book, only: %i[ show edit destroy update borrowed]
   
     def index
-        @book=Book.all
+        @book=Book.preload(:borrows, :reservations, :pictures).all
     end
     
     def show
