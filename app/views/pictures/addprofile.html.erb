@@ -1,0 +1,16 @@
+<form method="POST" action='/photo'>
+        <%= token_tag %>
+        <div class="mb-3">
+            <label for="url" class="form-label">URL</label>
+            <input name="url" type="text" class="form-control" id="url" placehcom>
+        </div>
+        <div class="mb-3">
+ <input type="submit" class="btn btn-primary" value="Add" style="display: block;">
+        </div>
+                </div>
+         <div class="mb-3">
+         <%= link_to "View", showstudent_path, class:"btn btn-primary"%>
+         <%# <a href="/pictures/showstudent">
+ <input type="button" class="btn btn-primary" value="view" style="display: block;"></a> %>
+        </div>
+    </form>

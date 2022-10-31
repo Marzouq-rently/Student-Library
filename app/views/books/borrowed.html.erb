@@ -1,15 +1,24 @@
 <h1>Book borrowed</h1>
 <table class="table">
+<thead>
+    <tr>
+    <th scope="col">Student mail</th>
+       <th scope="col">Borrowed id</th>
+      <th scope="col">Book id</th>
+      <th scope="col">Book name</th>
+      <th scope="col">Author</th>
+    </tr>
+</thead>
+<tbody>
 <tr>
-<%= @borrowed.id %>
+<% stud=Student.find(@bo.student_id)%>
+<th scope="row"><%= stud.email %></th>
+<td><%= @bo.book_id %></td>
+<td><%= @borrowed.id %></td>
+<td><%= @borrowed.bookname %></td>
+<td><%= @borrowed.author %></td>
+<td><%= @borrowed.availablecopy %></td>
 </tr>
-<tr>
-<%= @borrowed.bookid %>
-</tr>
-<tr>
-<%= @borrowed.bookname %>
-</tr>
-<tr>
-<%= @borrowed.author %>
-</tr>
+</tbody>
 </table>
+<%= link_to "BACK", :back, class:"btn btn-secondary"%>

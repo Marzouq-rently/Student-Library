@@ -1,22 +1,23 @@
-<p style="color: green"><%= notice %></p>
+    <p style="color: green"><%= notice %></p>
 <h1>Books</h1>
- <table class="table">
-  <thead>
+
+ <table class="table table-striped table-hover">
+  <thead class="table-dark">
     <tr>
     <th scope="col">id</th>
-    <th scope="col">Book-id</th>
       <th scope="col">Book Name</th>
+    <th scope="col">Description</th>
       <th scope="col">Author</th>
-      <th scope="col">Borrow status</th>
+      <th scope="col">View book</th>
+       <th scope="col">Book image</th>
+       <th scope="col">Copies</th>
       <th scope="col">Borrow</th>
+       
     </tr>
     <div id="books">
   <% @book.each do |book| %>
     <%= render book %>
   <% end %>
 </div>
-
   </thead>
-  
   </table>
-  <%= link_to "New Book", new_book_path, class:"btn btn-success"%>

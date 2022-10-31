@@ -1,0 +1,15 @@
+
+  <%= $bid %>
+<form method="POST" action='/bookphoto'>
+        <%= token_tag %>
+        <div class="mb-3">
+            <label for="url" class="form-label">URL</label>
+            <input name="url" type="text" class="form-control" id="url" placehcom>
+        </div>
+        <div class="mb-3">
+ <input type="submit" class="btn btn-primary" value="Add" style="display: block;">
+        </div>
+         <div class="mb-3"><a href="/pictures/show">
+ <input type="button" class="btn btn-primary" value="view" style="display: block;"></a>
+        </div>
+    </form>

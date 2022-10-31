@@ -1,8 +1,9 @@
 class BooksController < ApplicationController
+  before_action :authenticate_student_or_admin!
     before_action :set_book, only: %i[ show edit destroy update borrowed]
   
     def index
-        @book=Book.all
+        @book=Book.preload(:borrows, :reservations, :pictures).all
     end
     
     def show
@@ -50,22 +51,19 @@ class BooksController < ApplicationController
       end
     end
 
-    def borrowed
-      # byebug
-      @a=params[:id]
-      @bo=Borrow.new
-      @bo.book_id=@a
-      @borrowed=Book.find(@a)
-    
+    def borrowhistory
+      @bohis=Borrow.all
     end
-  
+    def reservationhistory
+      @reshis=Reservation.all
+    end
     private
       def set_book
         @book = Book.find(params[:id])
       end
   
       def book_params
-        params.require(:book).permit(:bookid, :bookname, :author)
+        params.require(:book).permit( :bookname, :description, :author, :copy, :availablecopy )
       end
 
 end

@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+<nav class="navbar navbar-dark bg dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Student Library</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+                <%= link_to "Home", home_homepage_path, class:"nav-link active"%>
+        </li>
+        <% if student_signed_in?%>
+        <li class="nav-item">
+        <%= link_to "Add Profile photo", addprofile_path, class:"nav-link active" %>
+        </li>
+        <li class="nav-item">
+        <%= link_to "Edit profile", edit_student_registration_path, class:"nav-link active"%>
+        </li>
+        <li class="nav-item">
+        <%= link_to "Student History", studenthistory_path, class:"nav-link active"%>
+        </li>
+         <li class="nav-item">
+            <%= link_to "Sign Out", destroy_student_session_path, method: :delete, class:"nav-link active" %>
+        </li>
+        <li>
+        <mdb-dropdown tag="li" class="nav-item avatar" anchorClass="p-0">
+        <mdb-dropdown-toggle tag="a" navLink color="stylish" slot="toggle" waves-fixed>
+          <% a=Picture.find_by(pictureable_type:"Student", pictureable_id:current_student.id)%>
+          <% if a!=nil%>
+          <%= image_tag a.url,class:"rounded-circle z-depth-0", style:'width:5%'%>
+        <%end%>
+        </mdb-dropdown-toggle>
+      </mdb-dropdown>
+      </li>
+        <% else %>
+        <li class="nav-item">
+         <%= link_to "Sign in", new_student_session_path, class:"nav-link active"%>
+        </li>
+        <li class="nav-item">
+            <%= link_to "Sign Up", new_student_registration_path, class: "nav-link active"%>
+        </li>
+        <% end %>
+      </ul>
+       
+      <%# <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form> %>
+    </div>
+  </div>
+  </nav>
+</nav>
+           

@@ -1,0 +1,10 @@
+
+<% if student_signed_in?%>
+<%=render "home/homepage"%>
+<%else%>
+  <%= image_tag "https://img.freepik.com/premium-vector/online-registration-sign-up-login-account-smartphone-app-user-interface-with-secure-password-mobile-application-ui-web-banner-access-cartoon-people-vector-illustration_2175-1060.jpg?w=2000",style: 'width:50%;border-radius:8%', align:'right'%>
+  <h2>Sign in with the respective user</h2>
+<%= link_to "Admin", new_admin_session_path, class:"btn btn-primary" %>
+<%= link_to "Student", new_student_session_path, class:"btn btn-primary"%>
+
+<% end%>

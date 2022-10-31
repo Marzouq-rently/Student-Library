@@ -10,7 +10,10 @@ gem "rails", "~> 7.0.4"
 gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+#gem "sqlite3", "~> 1.4"
+
+# Use Postgres as the database for Active Record
+gem 'pg'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -29,8 +32,16 @@ gem "jbuilder"
 
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
-gem 'byebug', '~> 11.1', '>= 11.1.3'
+# gem 'byebug', '~> 11.1', '>= 11.1.3'
 
+gem 'activeadmin'
+
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
+gem 'sass-rails'
+
+gem 'excon'
+
+gem 'doorkeeper'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -44,7 +55,7 @@ gem 'byebug', '~> 11.1', '>= 11.1.3'
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
+gem "bootsnap" #require: false
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -55,6 +66,13 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'byebug', platform: :mri
+  gem 'rspec-rails', '~> 3.5'
+  gem 'faker'
+  gem 'factory_bot_rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -70,7 +88,7 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
+  # gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
 end
