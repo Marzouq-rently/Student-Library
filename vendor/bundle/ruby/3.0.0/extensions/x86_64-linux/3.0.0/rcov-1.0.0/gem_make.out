@@ -1,0 +1,17 @@
+current directory: /home/rently/Personal/Ruby on Rails projects/libraryfromscratch/scratch/vendor/bundle/ruby/3.0.0/gems/rcov-1.0.0/ext/rcovrt
+/home/rently/.rbenv/versions/3.0.0/bin/ruby -I /home/rently/.rbenv/versions/3.0.0/lib/ruby/3.0.0 -r ./siteconf20221031-7213-5asb80.rb extconf.rb
+creating Makefile
+
+current directory: /home/rently/Personal/Ruby on Rails projects/libraryfromscratch/scratch/vendor/bundle/ruby/3.0.0/gems/rcov-1.0.0/ext/rcovrt
+make "DESTDIR=" clean
+
+current directory: /home/rently/Personal/Ruby on Rails projects/libraryfromscratch/scratch/vendor/bundle/ruby/3.0.0/gems/rcov-1.0.0/ext/rcovrt
+make "DESTDIR="
+compiling 1.8/callsite.c
+1.8/callsite.c:2:10: fatal error: env.h: No such file or directory
+    2 | #include <env.h>
+      |          ^~~~~~~
+compilation terminated.
+make: *** [Makefile:245: callsite.o] Error 1
+
+make failed, exit code 2

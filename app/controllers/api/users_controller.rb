@@ -1,16 +1,12 @@
 class Api::UsersController < Api::ApplicationController
-    # def index
-    #     @bos=Borrow.all
-    #     render json: @bos, status: 200
-    # end
+    def index
+        @student=Student.all
+        render json:@student, status:200
+    end
     def show
-        @studentbohis=Borrow.eager_load(:books, :students).where(student_id:params[:id])
-        @studentreshis=Reservation.eager_load(:books, :students)where(student_id:params[:id])
-        @history=@studentbohis+@studentreshis
-        # respond_to do |format|
-        #     format.html
-        #     format.json { render json: {all_data: {data: @studentbohis, data1: @studentreshis}}}
-        # end
+        @studentbohis=Borrow.where(student_id:params[:id])
+        @studentreshis=Reservation.where(student_id:params[:id])
+        @history=["Borrowed history"]+@studentbohis+["Reservation history"]+@studentreshis
         render json: @history, status: 200
     end
 end
