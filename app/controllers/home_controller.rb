@@ -6,7 +6,4 @@ class HomeController < ApplicationController
     end
     def header
     end
-    def header1
-    end
-
 end

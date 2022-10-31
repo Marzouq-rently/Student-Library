@@ -6,7 +6,9 @@ class Reservation < ApplicationRecord
     after_update :checking_copy
     def reservation_create
         if create_check(self.book_id,self.student_id,self.status)==true then
-            self.errors.add :base, ("Already borrowed")
+            self.errors.add :base, ("Already reserved")
+        elsif self.status==nil then
+            self.errors.add :base, ("Status cant be nil")
         else
         end
     end
