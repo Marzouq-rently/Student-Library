@@ -22,7 +22,7 @@ class BorrowsController < ApplicationController
             flash.alert="You have borrowed this book"
             return
         else
-            bid=Borrow.where(book_id:@a,student_id:current_student.id,return:"-")
+            bid=Borrow.where(book_id:@a,student_id:current_student.id,returned:"-")
             if bid.present?
               render "/books/borrowerror"
               return
