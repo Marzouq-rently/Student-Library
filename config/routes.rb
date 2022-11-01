@@ -9,6 +9,14 @@ Rails.application.routes.draw do
   }
   namespace :api do
     resources :admins, only: %i[create]
+    resources :students do
+      collection do
+        post :create
+      end
+      member do
+        put :update
+      end
+    end
     resources :borrows
     resources :books
     resources :users
