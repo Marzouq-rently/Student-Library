@@ -31,7 +31,7 @@ class Reservation < ApplicationRecord
             @bo=Borrow.new
             @bo.student_id=self.student_id
             @bo.book_id=self.book_id
-            @bo.return="-"
+            @bo.returned="-"
             @bo.save   
             # redirect_to "/admin/reservations"
             # flash.notice="The book is officially borrowed" 

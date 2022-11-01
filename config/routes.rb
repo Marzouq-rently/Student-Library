@@ -18,10 +18,10 @@ Rails.application.routes.draw do
         get :borrowed
       end
   end
-  resources :userss do
+  resources :users do
     member do
       # get :return
-      get :status
+      #get :status
     end
   end
   resources :borrows do
@@ -60,7 +60,9 @@ Rails.application.routes.draw do
   get "pictures/show"
   # post "/borrows/:id", to:"borrows#create"
   # get "/borrows/:id", to:"borrows#update"
-  get "/status", to:"users#status"
+
+  # get "/status", to:"users#status" now changed
+  
   post '/bookphoto', to:"pictures#bookphoto"
     # get "/borrowed/:id", to:"books#borrowed"
   # root "articles#index"
