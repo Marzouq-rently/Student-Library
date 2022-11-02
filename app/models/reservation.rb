@@ -27,17 +27,13 @@ class Reservation < ApplicationRecord
     def checking_copy
         check=Book.find(self.book_id)
         if check.availablecopy >0 then
-            # self.update({:status=>"Borrowed"})
             @bo=Borrow.new
             @bo.student_id=self.student_id
             @bo.book_id=self.book_id
             @bo.returned="-"
             @bo.save   
-            # redirect_to "/admin/reservations"
-            # flash.notice="The book is officially borrowed" 
+
         else
-            # redirect_to "/admin/reservations"
-            # flash.alert="There are no copies available to borrow"
             self.errors.add("There are no copies available to borrow")
         end
     end

@@ -7,7 +7,7 @@ FactoryBot.define do
       copy {4}
       created_at {"23-2-2022"}
       updated_at {"23-2-2022"}
-      id {3}
+  
 
     end
     # factory :book2, class:"Book"  do

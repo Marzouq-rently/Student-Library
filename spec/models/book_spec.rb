@@ -7,19 +7,6 @@ RSpec.describe Book, :type => :model do
         it "can be created if valid" do
           expect(@book).to be_valid
         end
-#   subject { 
-#     described_class.new(
-#     bookname: "Anything",
-#     author: "Anything",
-#     description: "Anything",
-#     availablecopy: "Anything",
-#     copy: "Anything",
-#     created_at: DateTime.now,
-#     updated_at: DateTime.now + 1.week,
-#     id: 1
-#     )
-#  }
- #let(:book) {FactoryGirl.create(:book)}
   it "is valid with valid attributes" do
     expect(@book).to be_valid
   end
